@@ -1,0 +1,15 @@
+.mainFooter{
+   
+    background-color: 
+    #151616;
+    color: white;
+
+}
+
+.subFooter>div{
+
+margin-top: 50px;
+color: #fff;
+font-size: 14px;
+font-weight: 400;
+}
