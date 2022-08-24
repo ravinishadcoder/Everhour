@@ -1,0 +1,207 @@
+.topHeading{
+    width: 50%;
+    margin: auto;
+}
+.subTitle{
+    font-size: 22px;
+    color: #767676;
+    font-weight: 400;
+    line-height: 1.36;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.asana{
+    color: #4a90e2;
+    text-decoration: underline;
+   
+}
+.perfect{
+    margin-left: 70px;
+}
+.buttonSub{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+    
+}
+.usage{
+    
+    width: 100%;
+    margin-top: 150px;
+    display: flex;
+    
+}
+.videobtn{
+    position: absolute;
+    margin-left: 47rem;
+    margin-top: 12rem;
+}
+.videoBox{
+    height: 35rem;
+    width: 70rem;
+    position: absolute;
+    margin-left: 15rem;
+    margin-top: 3rem;
+ /* background-color: #4a90e2; */
+    display: none;
+}
+.clearVid{
+    font-size: 24px;
+    display: flex;
+    justify-content: end;
+}
+.useImg{
+    
+    height: 300px;
+    width: 400px;
+    border: box;
+    background-image: url('https://blog-cdn.everhour.com/assets/images/new-design/background-elements/dotted/dimond-dotted-orange.png');
+}
+.useBox img{
+width: 24px;
+height: 24px;
+}
+.useBox{
+    padding: 10px;
+    background-color: white;
+    row-gap: 20px;
+}
+.subUsage{
+    font-size: 14px;
+    text-align: -webkit-left;
+    width: 300px;
+    background-color: #f0faf5;
+    box-shadow: #f0faf5 0px 2px 8px 0px;
+   padding: 10px 20px 10px 2px;
+}
+.subUsageText{
+    margin-left: 33px;
+}
+.hideDot{
+    
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    position: absolute;
+    margin-top: 262px;
+}
+.estimate{
+    font-size: 36px;
+    font-weight: 500;
+    width: 40%;
+    margin: auto;
+    color: #333;
+    
+}
+.estiDown img{
+width:24px ;
+height: 24px;
+}
+.estiDown{
+    justify-content: center;
+    font-size: 24px;
+    line-height: 32px;
+    color: #333;
+    align-items: center;
+    gap: 30px;
+    font-weight: 500;
+}
+.quick div{
+width: 334px;
+height: 138px;
+}
+.number{
+    
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-left: -56px;
+    margin-top: 12px;
+    font-size: 26px;
+    color: #57bb71;
+    text-align: center;
+    background-color: #f2fbf9;
+}
+.everArt{
+    text-align: start;
+    font-size: 2.25rem;
+    line-height: 1.22;
+    font-weight: 500;
+    color: #333;
+    margin-left: 175px;
+}
+.article{
+    margin: auto;
+    color: #7c7c7c;
+    gap: 20px;
+    width: 80%;
+    justify-content: space-around;
+    font-size: 1rem;
+    line-height: 1.5;
+    
+}
+.article>div{
+    margin-bottom: 1rem;
+   height: fit-content;
+    padding: 40px;
+    border: 0.5px solid #57bb71;;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.fifth{
+    margin-top: -325px;
+}
+.fourth{
+    margin-top: -260px;
+}
+.getMore{
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+.getMore>div{
+
+width: 310px;
+text-align: start;
+padding: 20px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.bottomP{
+    font-size: 20px;
+    font-weight: 500;
+   color: #333;
+}
+.getMore>div:hover{
+   
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.control{
+   
+    height: 400px;
+    justify-content: start;
+    margin-top: 150px;
+}
+
+.greendot{
+    background-color: #57bb71;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+.botList{
+    font-weight: 500;
+    gap: 15px;
+}
+.googleF{
+    gap: 5px;
+    color: #7c7c7c;
+   margin-top: 15px;
+   margin-left: 175px;
+    font-size: 1rem;
+    line-height: 1.5; 
+}
+.googleF:hover{
+    text-decoration: underline;
+}
