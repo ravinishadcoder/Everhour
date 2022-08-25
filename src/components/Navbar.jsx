@@ -35,6 +35,9 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+import {FaJira} from 'react-icons/fa';
+import {SiXero} from 'react-icons/si';
+
 export default function WithSubnavigation() {
   const navigate = useNavigate()
   const { isOpen, onToggle } = useDisclosure();
@@ -151,7 +154,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack direction={"row"} spacing={4} >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
@@ -206,30 +209,38 @@ const DesktopSubNav = ({ label, href, img }) => {
       _hover={{ bg: useColorModeValue("white.50", "gray.900") }}
     >
       <Stack>
-        <Grid templateColumns={"repeat(2,1fr)"} gap="10px">
-          <GridItem display={"flex"}>
-            <img src={git} alt="" width="20px" />
-            <Text>GitHub</Text>
+        <Grid templateColumns={"repeat(2, 150px)"} gap="15px">
+          <GridItem mb="10px" display={"flex"}>
+            <img src={git} alt="" width="26px" />
+            <Text ml="12px">GitHub</Text>
           </GridItem>
-          <GridItem display={"flex"}>
-            <img src={monday} alt="" height={"18px"} width="20px" />
-            <Text>Monday</Text>
+          <GridItem mb="10px" display={"flex"}>
+            <img src={monday} alt="" height={"18px"} width="26px" />
+            <Text ml="12px">Monday</Text>
           </GridItem>
-          <GridItem display={"flex"}>
-            <img src={pivote} alt="" width="20px" />
-            <Text>Pivotal</Text>
+          <GridItem mb="10px" display={"flex"}>
+            <img src={pivote} alt="" width="26px" />
+            <Text ml="12px">Pivotal</Text>
           </GridItem>
-          <GridItem display={"flex"}>
-            <img src={clickup} alt="" width="20px" />
-            <Text>Click Up</Text>
+          <GridItem mb="10px" display={"flex"}>
+            <img src={clickup} alt="" width="26px" />
+            <Text ml="12px">Click Up</Text>
           </GridItem>
-          <GridItem display={"flex"}>
-            <img src={base} alt="" width="20px" />
-            <Text>Basecamp</Text>
+          <GridItem mb="10px" display={"flex"}>
+            <img src={base} alt="" width="26px" />
+            <Text ml="12px">Basecamp</Text>
           </GridItem>
-          <GridItem display={"flex"}>
+          <GridItem mb="10px" display={"flex"}>
             <img src={asan} width="20px" alt="" />
-            <Text>{label}</Text>
+            <Text ml="12px">Asana</Text>
+          </GridItem>
+          <GridItem mb="10px" display={"flex"}>
+            <FaJira fontSize="22px" color="#007aff"/>
+            <Text ml="12px">Jira</Text>
+          </GridItem >
+          <GridItem mb="10px" display={"flex"}  >
+            <SiXero fontSize="22px" color="#00b1d9"/>
+            <Text ml="12px">Xero</Text>
           </GridItem>
         </Grid>
       </Stack>
