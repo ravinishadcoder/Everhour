@@ -1,0 +1,112 @@
+.priceSubHead {
+  font-size: 22px;
+  color: #767676;
+  font-weight: 400;
+  line-height: 1.36;
+
+  margin-top: 30px;
+}
+.priceBox {
+  align-items: center;
+  text-align: start;
+  margin-top: -40px;
+}
+.priceBox > div {
+  padding: 50px;
+  width: 350px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 5px;
+  background-color: white;
+}
+.boxSolid {
+  background-color: #57bb71;
+  width: 200px;
+  width: 280px;
+  height: 4px;
+  margin-top: 30px;
+  position: absolute;
+  border-radius: 5px;
+}
+.priceBoxHead {
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.priceBoxSub {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: #7c7c7c;
+  margin-bottom: 2.5rem;
+  min-height: 3rem;
+}
+.pricBKI {
+  height: 150px;
+  width: 200px;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-image: url(https://blog-cdn.everhour.com/assets/images/new-design/background-elements/green-touches-right.png);
+  margin-left: 400px;
+  margin-top: 78px;
+}
+
+.priceBKIsec {
+  height: 34rem;
+  width: 36rem;
+  margin-top: -328px;
+  margin-left: 207px;
+  position: absolute;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-image: url("https://blog-cdn.everhour.com/assets/images/new-design/background-elements/oval-green-dotted-yellow-combined.jpg");
+}
+.quesBox > div {
+  width: 50%;
+  
+}
+.anserBox {
+  font-size: 1.125rem;
+  font-family: sans-serif;
+
+  line-height: 1.44;
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+
+  color: #333;
+}
+
+.radioBtn{
+    
+    cursor: pointer;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 148px;
+    height: 32px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin:50px auto;
+    background-color: #f2fbf9;
+    -webkit-transition: .25s -.1s;
+    -o-transition: .25s -.1s;
+    transition: .25s -.1s;
+}
+.radioBtn>p{
+    background-color:black;
+}
+.slideBtn{
+   justify-content: space-around;
+   align-items: center;
+   
+}
+
+.slideBtn>div:first-child{
+    padding: 6px;
+    border-radius: 18px;
+}
+.slideBtn>div:nth-child(2){
+    padding: 8px;
+    border-radius: 20px
+}
