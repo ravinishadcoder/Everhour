@@ -1,0 +1,108 @@
+.topHeading {
+  width: 50%;
+  margin: auto;
+}
+.subHead {
+  font-weight: 400;
+  color: #767676;
+  margin-top: 20px;
+  font-size: 1.35rem;
+}
+.googleBox{
+  border: 1px solid #767676;
+  width: 320px;
+  height: 45px;
+  align-items: center;
+  gap: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.googleBoxI{
+  border: none;
+ 
+  width: 320px;
+  height: 45px;
+  align-items: center;
+  gap: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.googleBoxL>input{
+  border: 1px solid #767676;
+  width: 320px;
+  height: 45px;
+  align-items: center;
+  gap: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.registrationBox {
+  margin: 2.5rem auto;
+  width: auto;
+  max-width: 320px;
+  border-radius: 0;
+  border: 0;
+  padding: 0;
+  color: #7c7c7c;
+  font-size: 0.875rem;
+}
+.icon {
+  font-size: 23px;
+  margin-left: 15px;
+}
+.signUpImg {
+  height: 400px;
+  width: 360px;
+  position: absolute;
+  margin-top: 178px;
+  background-repeat: no-repeat;
+  background-image: url("https://blog-cdn.everhour.com/assets/images/new-design/background-elements/solid/oval-solid-orange-left.jpg");
+}
+.signUpsec {
+  height: 150px;
+  width: 200px;
+  position: absolute;
+  margin-top: 180px;
+  background-repeat: no-repeat;
+  background-image: url("https://blog-cdn.everhour.com/assets/images/new-design/background-elements/green-touches-right.png");
+  margin-left: 213px;
+}
+.bacSignup {
+  position: absolute;
+  background-image: url("https://blog-cdn.everhour.com/assets/images/new-design/background-elements/cut-oval-dotted-orange-and-solid-green-combined.jpg");
+
+  height: 466px;
+  width: 250px;
+}
+
+.loginBox {
+   
+  width: 70%;
+  justify-content: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+ margin: 20px auto;
+ 
+}
+
+.loginBox > div {
+  width: 50%;
+  padding: 50px;
+}
+.newsHead {
+  text-align: start;
+  font-size: 1.125rem;
+  line-height: 1.44;
+  color: #333;
+  font-weight: 400;
+}
+.newsSubHead {
+  text-align: start;
+  color: #7c7c7c;
+}
+.linkText{
+    text-decoration: underline;
+    color:#4a90e2;
+}
