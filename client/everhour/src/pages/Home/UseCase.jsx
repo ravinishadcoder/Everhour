@@ -118,10 +118,13 @@ if(count===100)
   return (
     <Box className={styles.usage}>
       <Box className={styles.hideDot} />
-      <Box className={styles.useImg}></Box>
+      <Box className={styles.useImg} display={["none","none","none","flex","flex"]}
+      height= {["200px","300px"]}
+      width= {["250px","250px"]}
+      ></Box>
 
-      <Grid templateColumns={"370px 900px"}>
-        <GridItem ml="-40px">
+      <Grid margin="auto" width={["80%","80%","80%","100%","100%"]} templateColumns={["80%","80%","80%","30% 70%","30% 70%"]} zIndex="2" margin="auto">
+        <GridItem>
           <Text
             fontSize={"36px"}
             fontWeight={500}

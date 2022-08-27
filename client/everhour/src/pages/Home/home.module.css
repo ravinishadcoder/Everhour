@@ -54,9 +54,8 @@
 }
 .useImg{
     
-    height: 300px;
-    width: 400px;
-    border: box;
+    
+    border: 1px solid red;
     background-image: url('https://blog-cdn.everhour.com/assets/images/new-design/background-elements/dotted/dimond-dotted-orange.png');
 }
 .useBox img{
@@ -90,7 +89,7 @@ height: 24px;
 .estimate{
     font-size: 36px;
     font-weight: 500;
-    width: 40%;
+    /* width: 40%; */
     margin: auto;
     color: #333;
     
