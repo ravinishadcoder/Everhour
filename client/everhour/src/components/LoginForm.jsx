@@ -24,7 +24,6 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import styles from "../pages/Login/signup.module.css";
 
-
 export default function LoginForm() {
   const toast = useToast();
   const navigate = useNavigate();
@@ -47,80 +46,16 @@ export default function LoginForm() {
     fetch("https://efficiousever.herokuapp.com/auth/signup", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: payload,
     })
-    .then((res) => res.json())
-    .then((res) => console.log(res))
-    .catch((err) => console.log)
-
-    // let userName = signUpData.some((el) => el.name === data.name);
-    // let userMob = signUpData.some((el) => el.mob === data.mob);
-    // if (data.name == "" || data.mob == "") {
-    //   toast({ description: "Please fill all the input" });
-    // } else if (userName || userMob) {
-    //   toast({ description: "user already exist" });
-    // } else {
-    //   updateSignUpInfo(data);
-    // }
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((err) => console.log);
     navigate("/login");
   };
 
-    const toast = useToast();
-    const {signUpData,setSignUpData,updateSignUpInfo,getSingUpInfo} = useContext(AuthContext);
-    
-
-    const navigate = useNavigate()
-
-    const [show, setShow] = useState(false)
-    const [isSaving, setisSaving] = useState(false);
-    const [data,setData]=useState({email:signUpData[0]['email'],name:"",mob:"",password:""})
-    
-        
-    const handleChange=(e)=>{
-      const {name,value}=e.target;      
-      setData({...data,[name]:value});
-    } 
-
-  const handleSignIn= async(e)=>{
-      e.preventDefault();
-      setisSaving(true);
-
-      if(data.name==""||data.mob==""){
-        toast({ description: 'Please fill all the input' });
-        setisSaving(false);
-        return false;
-      }
-
-      try {
-        const users = await getSingUpInfo();
-        console.log(users);
-        let userExists = users.data.filter((el)=>el['email'] && el['email']===data.email);
-      
-        if(userExists.length){
-            toast({ description: 'user already exist' });
-            setisSaving(false);
-            return false;
-        }
-
-      } catch (error) {
-        setisSaving(false);
-        toast({ description: 'Error: '+error.message });
-        return false;
-      }
-    
-      
-
-      updateSignUpInfo(data).then(res=>{
-        setisSaving(false);
-        navigate('/projectDetails');
-      }).catch(err=>{
-        console.log(err);
-        setisSaving(false);
-        toast({ description: 'Error:err.message' });
-      });
-  }
   return (
     <Flex
       align={"center"}
@@ -150,8 +85,12 @@ export default function LoginForm() {
               <Input type="email" onChange={handleChange} name="email" />
             </FormControl>
             <FormControl isRequired>
-              <FormLabel >Job Title</FormLabel>
-              <Input type="text" placeholder={"e.g. Co-Founder/CEO"} name="jobtitle"/>
+              <FormLabel>Job Title</FormLabel>
+              <Input
+                type="text"
+                placeholder={"e.g. Co-Founder/CEO"}
+                name="jobtitle"
+              />
             </FormControl>
             <FormControl isRequired>
               <FormLabel>Phone</FormLabel>
@@ -191,16 +130,16 @@ export default function LoginForm() {
                 <Checkbox >Remember me</Checkbox>
                 <Link to={"./projectDetails"} color={"blue.400"}>Forgot password?</Link>
               </Stack>
-              
-              <Button disabled={isSaving}
-              onClick={handleSignIn}
+
+              <Button
+                onClick={handleSignIn}
                 bg={"#24be6a"}
                 color={"white"}
                 _hover={{
                   bg: "blue.500",
                 }}
               >
-                continue {isSaving && <Spinner />}
+                continue
               </Button>
 
             </Stack>
