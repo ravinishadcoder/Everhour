@@ -19,7 +19,7 @@ const Carousel = () => {
         <Text>reports & track time. All inside your</Text>
         <Text>project management tool</Text>
       </Box>
-      <Box mt={"50px"} >
+      <Box mt={"50px"} display={["none","none","grid","grid","grid"]}>
         <Flex className={styles.estiDown} >
           <Flex alignItems={"center"}>
             <img src={asan} alt="" />
@@ -76,13 +76,13 @@ const Carousel = () => {
       <IoIosArrowForward/>
       </Box> */}
       </Flex>
-      <Flex className={styles.quick} justifyContent="center">
+      <Flex width={["70%"]} display={["none","none","none","none","none","flex"]} alignItems="center" justifyContent={"space-around"} margin="auto">
       
         <Box>
         <section className={styles.number} >1</section> 
           <Text
             textAlign={"start"}
-            fontSize="18px"
+            fontSize={["18px"]}
             color="#333"
             fontWeight="500"
           >
@@ -146,17 +146,19 @@ const Carousel = () => {
         </Box>
       </Flex>
       <Box mt={'150px'}>
-        <Box className={styles.everArt}>
+        <Box fontWeight={[400,400,400,400,500]}
+            fontSize={["25px", "25px","35px","35px", "45px"]}
+            width={["100%", "100%"]}>
           <Text>Everhour has helped 166,000+</Text>
           <Text>people complete over 118</Text>
           <Text>million tasks in 3 million</Text>
           <Text>projects</Text>
         </Box>
-        <Flex width={'90%'}mt='50px' justifyContent={'space-around'}>
+        <Flex width={'90%'}mt='50px' justifyContent={'space-around'} >
           <Box>
             <img src={article} alt="" />
           </Box>
-          <Box mt={'-100px'}>
+          <Box mt={'-100px'} >
             <img src="https://blog-cdn.everhour.com/assets/images/new-design/illustrations/customers/customer-kelly.webp" alt="" />
           </Box>
         </Flex>
