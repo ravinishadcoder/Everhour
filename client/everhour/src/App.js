@@ -14,6 +14,7 @@ import ClickUp from './integrations/ClickUp';
 import BaseCamp from './integrations/BaseCamp';
 import Trello from './integrations/Trello';
 import Time from './pages/Project/Time';
+import Demo from './pages/Home/Demo';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/pricing' element={<Pricing/>}/>
+        <Route path='/demo' element={<Demo/>}/>
         <Route path='/loginDetails' element={<LoginForm/>}/>
         <Route path='/projectDetails'element={<LoginProject/>}/>
         <Route path='/integrations/asana' element={<Asana/>}/>

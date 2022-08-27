@@ -34,17 +34,43 @@ import {
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+// const NAV_ITEMS = [
+//   {name:"Integrations",
+//   id:1,
+// },
+// {name:"Pricing",
+// id:2
+// },
+//  {name:"Demo",
+//  id:3
+// }
+// ];
 const NAV_ITEMS = [
-  {name:"Integrations",
-  id:1,
-},
-{name:"Pricing",
-id:2
-},
- {name:"Demo",
- id:3
-}
+  // {
+  //   label: "Tour",
+  //   href: "/tour",
+  // },
+  {
+    label: "Integrations",
+    children: [
+      {
+        label: "Asana",
+        subLabel: "Find your dream design job",
+        href: "#",
+        img: "../assests/clickup.png",
+      },
+    ],
+  },
+  {
+    label: "Pricing",
+    href: "/pricing",
+  },
+  {
+    label: "Demo",
+    href: "/demo",
+  },
 ];
+
 export default function WithSubnavigation() {
   const navigate = useNavigate()
   const { isOpen, onToggle } = useDisclosure();
@@ -168,7 +194,7 @@ const DesktopNav = () => {
   return (
     <Stack direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.name}>
+        <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
@@ -183,7 +209,7 @@ const DesktopNav = () => {
                   color: "black",
                 }}
               >
-                {navItem.name}
+                {navItem.label}
               </Link>
             </PopoverTrigger>
 
@@ -222,7 +248,11 @@ const DesktopSubNav = ({ label, href, img }) => {
     >
       <Stack>
         <Grid templateColumns={"repeat(2,1fr)"} gap="10px">
-          <GridItem display={"flex"}>
+        <GridItem >
+            <img src={git} alt="" width="20px" />
+            <Text>GitHub</Text>
+          </GridItem>
+          {/* <GridItem display={"flex"}>
             <img src={git} alt="" width="20px" />
             <Text>GitHub</Text>
           </GridItem>
@@ -245,7 +275,7 @@ const DesktopSubNav = ({ label, href, img }) => {
           <GridItem display={"flex"}>
             <img src={asan} width="20px" alt="" />
             <Text>{label}</Text>
-          </GridItem>
+          </GridItem> */}
         </Grid>
       </Stack>
     </Link>
@@ -319,41 +349,4 @@ const MobileNavItem = ({ label, children, href }) => {
   );
 };
 
-// const NAV_ITEMS = [
-  // {
-  //   label: "Tour",
-  // },
-  // {
-  //   label: "Integrations",
-  //   children: [
-  //     {
-  //       label: "Asana",
-  //       subLabel: "Find your dream design job",
-  //       href: "#",
-  //       img: "../assests/clickup.png",
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: "Customers",
-  //   href: "#",
-  // },
-  // {
-  //   label: "Pricing",
-  //   href: "/pricing",
-  // },
-  // {
-  //   label: "Demo",
-  //   href: "#",
-  // },
-//   {name:"Integrations",
-//   id:1,
-// },
-// {name:"Pricing",
-// id:2
-// },
-//  {name:"Demo",
-//  id:3
-// }
-// ];
 
