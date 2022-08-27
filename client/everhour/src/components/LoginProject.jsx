@@ -22,34 +22,25 @@ import {
   import { AuthContext } from "../context/AuthContext";
   import styles from '../pages/Login/signup.module.css'
   export default function LoginProject() {
-      const toast = useToast()
-      const navigate = useNavigate()
-      const [show, setShow] = useState(false)
-      const [data,setData]=useState({name:"",mob:"",password:""})
+    const [data,setData]=useState({})
+    const navigate  = useNavigate();
+
       
-    const handleClick = () => setShow(!show)
-    const {signUpData,updateSignUpInfo} = useContext(AuthContext)
-    const handleChange=(e)=>{
-     const {name,value}=e.target;
-     
-     setData({...data,[name]:value})
-    } 
-   const handleSignIn=(e)=>{
-  e.preventDefault();
-  
-  let userName = signUpData.some((el)=>el.name===data.name)
-  let userMob = signUpData.some((el)=>el.mob===data.mob)
-  if(data.name==""||data.mob==""){
-      toast({ description: 'Please fill all the input' })
-  }
-  else if(userName||userMob){
-     toast({ description: 'user already exist' })
-  }else{
-      
-      updateSignUpInfo(data)
-      navigate('/login')
-  }
+   const handleChange = (e)=>{
+    let {name, value} = e.target
+    setData({...data, [name]: value});
+       
    }
+
+   const createForm = (e)=>{
+    e.preventDefault();
+    console.log(data);
+
+   }
+
+//    const moveToNxt => () { navigate(“/”) }
+
+
     return (
       <Flex
         align={"center"}
@@ -77,14 +68,13 @@ import {
 
               <FormControl isRequired>
                 <FormLabel>client</FormLabel>
-                <Input type="text" onChange={handleChange} name="name" />
+                <Input type="text" onChange={handleChange} name="client" />
               </FormControl>
 
               <FormControl isRequired>
                 <FormLabel>Tasks</FormLabel>
-                <Input type="text" onChange={handleChange} name="name" />
-                <Input type="text" onChange={handleChange} name="name" />
-                <Input type="text" onChange={handleChange} name="name" />
+                <Input type="text" onChange={handleChange} name="Tasks" />
+               
               </FormControl>
               
               
@@ -98,11 +88,14 @@ import {
                  
                 </Stack>
                 <Button
-                onClick={handleSignIn}
+                // onClick={ moveToNxt() }
+
+                onClick={createForm}
                   bg={"#24be6a"}
                   color={"white"}
                   
                   _hover={{
+
                     bg: "blue.500",
                   }}
                 >
