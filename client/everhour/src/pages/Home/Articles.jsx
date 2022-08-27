@@ -42,9 +42,10 @@ const Articles = () => {
         templateColumns={"repeat(3,1fr)"}
         className={styles.article}
         mt={"80px"}
+        display={["none","none","none","none","grid"]}
       >
         {data.map((item, i) => {
-          if (i == 4) {
+          if (i === 4) {
             return (
               <GridItem key={i} className={styles.fourth}>
                 <Text>{item.text}</Text>
@@ -52,7 +53,7 @@ const Articles = () => {
               </GridItem>
             );
           }
-          if (i == 5) {
+          if (i === 5) {
             return (
               <GridItem key={i} className={styles.fifth}>
                 <Text>{item.text}</Text>
@@ -70,7 +71,9 @@ const Articles = () => {
         })}
       </Grid>
       <VStack mt={'100px'}>
-        <Text className={styles.everArt}>Get more from Everhour</Text>
+        <Text  fontWeight={500}
+            fontSize={["25px", "25px","35px","35px", "45px"]}
+            width={["100%", "100%"]}>Get more from Everhour</Text>
         <Text
           fontSize={"1.125rem"}
           lineHeight="1.44"
@@ -82,7 +85,7 @@ const Articles = () => {
         </Text>
       </VStack>
       <Flex className={styles.getMore}>
-        <Box>
+        <Box display={["none","none","grid","grid","grid"]}>
           <Box>
             <img
               src="https://blog-cdn.everhour.com/assets/images/new-design/illustrations/resources/section-help-docs.webp"
@@ -98,7 +101,7 @@ const Articles = () => {
           <Text className={styles.bottomP}>team work better</Text>
           </Box>
         </Box>
-        <Box>
+        <Box display={["none","none","grid","grid","grid"]}>
           <Box>
             <img
               src="https://blog-cdn.everhour.com/assets/images/new-design/illustrations/resources/section-product-updates.webp"
@@ -114,8 +117,8 @@ const Articles = () => {
           <Text className={styles.bottomP}>EverHour</Text>
           </Box>
         </Box>
-        <Box>
-          <Box>
+        <Box display={["none","none","grid","grid","grid"]}>
+          <Box >
             <img
               src="https://blog-cdn.everhour.com/assets/images/new-design/illustrations/resources/section-tutorial-videos.webp"
               alt=""
@@ -130,8 +133,8 @@ const Articles = () => {
           <Text className={styles.bottomP}>EverHour features</Text>
           </Box>
         </Box>
-        <Box>
-          <Box>
+        <Box display={["none","none","grid","grid","grid"]}>
+          <Box >
             <img
               src="https://blog-cdn.everhour.com/assets/images/new-design/illustrations/resources/section-guide-and-templates.webp"
               alt=""
@@ -148,10 +151,10 @@ const Articles = () => {
         </Box>
       </Flex>
       <Flex className={styles.control}>
-        <Box w={'70%'}>
+        <Box w={['100%','100%','70%']}>
             <Stack>
                 <Box>
-                <Text className={styles.everArt}>
+                <Text className={styles.everArt} ml={['17%']}>
                 Take control of your time with Everhour
                 </Text>
                 <Text
@@ -160,33 +163,37 @@ const Articles = () => {
                 color="#767676"
                 fontWeight={400}
                 textAlign='start'
-                ml={'175px'}
+                ml={['17%']}
                 mt='10px'
                 >Beautiful integrations. Intuitive interface. No unexpected fees</Text>
                 </Box>
-             <Flex style={{marginLeft:"175px",marginTop:"25px"}}
-             width={'470px'}  gap={'10px'} >
-             <Input placeholder='Work email...' h={'48px'}/>
+             <Grid style={{marginTop:"25px" ,marginLeft:"17%"}} gap="3%"
+             templateColumns={["100%","100%","100%","70% 30%","70% 30%"]} width={["100%","100%","50%","50%","50%"]} ml={["17%"]}>
+             <GridItem>   
+             <Input placeholder='Work email...' h={'48px'} />
+             </GridItem>
+             <GridItem>   
              <Button
             background={"#57bb71"}
             size="lg"
-            width={"150px"}
+            width={"100%"}
             color="white"
             _hover={{ bg: "#57bb71" }}
             borderColor="#ccd0d5"
           >
             Try free
           </Button>
-             </Flex>   
+          </GridItem>
+             </Grid>   
             </Stack>
-            <Flex alignItems={'center'} className={styles.googleF} >
+            <Flex alignItems={'center'} className={styles.googleF} ml={['17%']} mb={["70px","40px","20px","0px","0px","0px"]}>
                 <FcGoogle/>
                 <Text>Or sign up with Google Account</Text>
             </Flex>
         </Box>
-        <Box w={'30%'}>
-            <Stack className={styles.botList}>
-                <Flex alignItems={'center'} gap="5px">
+        <Box w={['30%','30%','30%']}>
+            <Stack className={styles.botList} display={["none","none","flex","flex","flex"]}>
+                <Flex alignItems={'center'} gap="5px" >
                     <Box className={styles.greendot}></Box>
                     <Text >Track time from the apps you already use</Text>
                 </Flex>

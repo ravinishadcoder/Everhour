@@ -16,8 +16,10 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
+import { Spinner } from '@chakra-ui/react'
 import { useContext } from "react";
 import { useState } from "react";
+import { AiOutlineConsoleSql } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import styles from "../pages/Login/signup.module.css";
@@ -64,6 +66,61 @@ export default function LoginForm() {
     // }
     navigate("/login");
   };
+
+    const toast = useToast();
+    const {signUpData,setSignUpData,updateSignUpInfo,getSingUpInfo} = useContext(AuthContext);
+    
+
+    const navigate = useNavigate()
+
+    const [show, setShow] = useState(false)
+    const [isSaving, setisSaving] = useState(false);
+    const [data,setData]=useState({email:signUpData[0]['email'],name:"",mob:"",password:""})
+    
+        
+    const handleChange=(e)=>{
+      const {name,value}=e.target;      
+      setData({...data,[name]:value});
+    } 
+
+  const handleSignIn= async(e)=>{
+      e.preventDefault();
+      setisSaving(true);
+
+      if(data.name==""||data.mob==""){
+        toast({ description: 'Please fill all the input' });
+        setisSaving(false);
+        return false;
+      }
+
+      try {
+        const users = await getSingUpInfo();
+        console.log(users);
+        let userExists = users.data.filter((el)=>el['email'] && el['email']===data.email);
+      
+        if(userExists.length){
+            toast({ description: 'user already exist' });
+            setisSaving(false);
+            return false;
+        }
+
+      } catch (error) {
+        setisSaving(false);
+        toast({ description: 'Error: '+error.message });
+        return false;
+      }
+    
+      
+
+      updateSignUpInfo(data).then(res=>{
+        setisSaving(false);
+        navigate('/projectDetails');
+      }).catch(err=>{
+        console.log(err);
+        setisSaving(false);
+        toast({ description: 'Error:err.message' });
+      });
+  }
   return (
     <Flex
       align={"center"}
@@ -119,7 +176,7 @@ export default function LoginForm() {
                   placeholder="Enter password"
                 />
                 <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleClick}>
+                  <Button h="1.75rem" size="sm" onClick={()=>setShow(!show)}>
                     {show ? "Hide" : "Show"}
                   </Button>
                 </InputRightElement>
@@ -131,19 +188,21 @@ export default function LoginForm() {
                 align={"start"}
                 justify={"space-between"}
               >
-                <Checkbox>Remember me</Checkbox>
-                <Link color={"blue.400"}>Forgot password?</Link>
+                <Checkbox >Remember me</Checkbox>
+                <Link to={"./projectDetails"} color={"blue.400"}>Forgot password?</Link>
               </Stack>
-              <Button
-                onClick={handleSignIn}
+              
+              <Button disabled={isSaving}
+              onClick={handleSignIn}
                 bg={"#24be6a"}
                 color={"white"}
                 _hover={{
                   bg: "blue.500",
                 }}
               >
-                continue
+                continue {isSaving && <Spinner />}
               </Button>
+
             </Stack>
           </Stack>
         </Box>
