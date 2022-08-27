@@ -18,8 +18,8 @@ import Time from './pages/Project/Time';
 function App() {
   return (
     <div className="App">
-     <Time/>
-      {/* <Navbar/>
+     {/* <Time/> */}
+      <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -32,7 +32,7 @@ function App() {
         <Route path='/integrations/basecamp' element={<BaseCamp/>}/>
         <Route path='/integrations/trello' element={<Trello/>}/>
       </Routes>
-      <Footer/> */}
+      <Footer/>
     </div>
   );
 }
