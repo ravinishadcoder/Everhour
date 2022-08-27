@@ -15,41 +15,72 @@ import {
   InputLeftAddon,
   InputRightElement,
 } from "@chakra-ui/react";
-import { useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react';
+import { Spinner } from '@chakra-ui/react'
+
 import { useContext } from "react";
 import { useState } from "react";
+import { AiOutlineConsoleSql } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import styles from '../pages/Login/signup.module.css'
 export default function LoginForm() {
-    const toast = useToast()
-    const navigate = useNavigate()
-    const [show, setShow] = useState(false)
-    const [data,setData]=useState({name:"",mob:"",password:""})
+    const toast = useToast();
+    const {signUpData,setSignUpData,updateSignUpInfo,getSingUpInfo} = useContext(AuthContext);
     
-  const handleClick = () => setShow(!show)
-  const {signUpData,updateSignUpInfo} = useContext(AuthContext)
-  const handleChange=(e)=>{
-   const {name,value}=e.target;
-   
-   setData({...data,[name]:value})
-  } 
- const handleSignIn=(e)=>{
-e.preventDefault();
 
-let userName = signUpData.some((el)=>el.name===data.name)
-let userMob = signUpData.some((el)=>el.mob===data.mob)
-if(data.name==""||data.mob==""){
-    toast({ description: 'Please fill all the input' })
-}
-else if(userName||userMob){
-   toast({ description: 'user already exist' })
-}else{
+    const navigate = useNavigate()
+
+    const [show, setShow] = useState(false)
+    const [isSaving, setisSaving] = useState(false);
+    const [data,setData]=useState({email:signUpData[0]['email'],name:"",mob:"",password:""})
     
-    updateSignUpInfo(data)
-    navigate('/login')
-}
- }
+        
+    const handleChange=(e)=>{
+      const {name,value}=e.target;      
+      setData({...data,[name]:value});
+    } 
+
+  const handleSignIn= async(e)=>{
+      e.preventDefault();
+      setisSaving(true);
+
+      if(data.name==""||data.mob==""){
+        toast({ description: 'Please fill all the input' });
+        setisSaving(false);
+        return false;
+      }
+
+      try {
+        const users = await getSingUpInfo();
+        console.log(users);
+        let userExists = users.data.filter((el)=>el['email'] && el['email']===data.email);
+      
+        if(userExists.length){
+            toast({ description: 'user already exist' });
+            setisSaving(false);
+            return false;
+        }
+
+      } catch (error) {
+        setisSaving(false);
+        toast({ description: 'Error: '+error.message });
+        return false;
+      }
+    
+      
+
+      updateSignUpInfo(data).then(res=>{
+        setisSaving(false);
+        navigate('/projectDetails');
+      }).catch(err=>{
+        console.log(err);
+        setisSaving(false);
+        toast({ description: 'Error:err.message' });
+      });
+  }
+
+
   return (
     <Flex
       align={"center"}
@@ -95,7 +126,7 @@ else if(userName||userMob){
                   placeholder="Enter password"
                 />
                 <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleClick}>
+                  <Button h="1.75rem" size="sm" onClick={()=>setShow(!show)}>
                     {show ? "Hide" : "Show"}
                   </Button>
                 </InputRightElement>
@@ -108,9 +139,10 @@ else if(userName||userMob){
                 justify={"space-between"}
               >
                 <Checkbox >Remember me</Checkbox>
-                <Link color={"blue.400"}>Forgot password?</Link>
+                <Link to={"./projectDetails"} color={"blue.400"}>Forgot password?</Link>
               </Stack>
-              <Button
+              
+              <Button disabled={isSaving}
               onClick={handleSignIn}
                 bg={"#24be6a"}
                 color={"white"}
@@ -118,8 +150,9 @@ else if(userName||userMob){
                   bg: "blue.500",
                 }}
               >
-                continue
+                continue {isSaving && <Spinner />}
               </Button>
+
             </Stack>
           </Stack>
         </Box>

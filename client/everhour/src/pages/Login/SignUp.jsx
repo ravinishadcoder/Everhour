@@ -1,13 +1,34 @@
 import { Box, Button, Flex, HStack, Input, Stack, Text, VStack } from '@chakra-ui/react'
-import React from 'react'
+import React,{useContext} from 'react'
 import { FcGoogle} from "react-icons/fc";
 import styles from './signup.module.css'
 import { BsDot} from "react-icons/bs";
 import Articles from '../Home/Articles';
 import GoogleLogin from 'react-google-login';
+import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react'
 
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const toast = useToast();
+  const {signUpData,setSignUpData} = useContext(AuthContext);
+
+  let signUpInfo = [{email:''}];
+
+  const handleChange=(e)=>{
+    signUpInfo[0].email = e.target.value;
+    setSignUpData(signUpInfo);
+  } 
+
+  const gotoLoginForm = ()=>{
+    if(signUpData[0].email=== ''){
+      toast({ description: 'Email is required' });
+      return false;
+    }
+    navigate('/loginDetails')
+  }
 
   const responseGoogle = response=>{
     console.log(response);
@@ -46,10 +67,13 @@ const SignUp = () => {
         <Text>Or</Text>
         <Flex className={styles.googleBoxI}>
            
-            <Input type='text' placeholder='Work email...' />
+            <Input  type='text' onChange={handleChange} placeholder='Work email...' />
         </Flex>
         
-        <Button
+
+        {/* Link to="/loginDetails" */}
+
+        <Button onClick={gotoLoginForm} style={{cursor:'pointer'}}
         as={'a'}
         mt={'30px'}
             background={"#57bb71"}
@@ -57,7 +81,6 @@ const SignUp = () => {
             width={"180px"}
             color="white"
             _hover={{ bg: "#57bb71" }}
-            href={'./loginDetails'}
             borderColor="#ccd0d5"
             fontSize={'1rem'}
             fontWeight='normal'
