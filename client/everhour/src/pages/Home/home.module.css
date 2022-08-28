@@ -55,7 +55,7 @@
 .useImg{
     
     
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-image: url('https://blog-cdn.everhour.com/assets/images/new-design/background-elements/dotted/dimond-dotted-orange.png');
 }
 .useBox img{
