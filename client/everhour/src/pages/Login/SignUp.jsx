@@ -8,6 +8,8 @@ import GoogleLogin from 'react-google-login';
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react'
+import Navbar from "../../components/Navbar"
+import Footer from "../../components/Footer"
 
 
 const SignUp = () => {
@@ -40,6 +42,9 @@ const SignUp = () => {
 
   return (
     <Box >
+      <Box>
+        <Navbar/>
+      </Box>
         <Box className={styles.signUpImg}></Box>
         <Box className={styles.signUpsec}></Box>
        <Flex justifyContent={'end'}> <Box className={styles.bacSignup} ></Box></Flex>
@@ -98,6 +103,9 @@ const SignUp = () => {
         <Box>
             <Articles/>
         </Box>
+        <Box>
+        <Footer/>
+      </Box>
     </Box>
   )
 }

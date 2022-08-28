@@ -14,6 +14,9 @@ import React from "react";
 import styles from "./pricing.module.css";
 import { BsCheck } from "react-icons/bs";
 import { useState } from "react";
+import Navbar from "../../components/Navbar"
+import Footer from "../../components/Footer"
+
 const Pricing = () => {
     const [switchData,setSwitchData]=useState(true);
    const handleSwitchM=()=>{
@@ -24,6 +27,9 @@ const Pricing = () => {
    } 
   return (
     <Box>
+      <Box>
+        <Navbar/>
+      </Box>
       <Stack>
         <Text lineHeight={1.5} fontWeight={500} fontSize={"45px"}>
           Simple pricing with no extra fees
@@ -214,6 +220,9 @@ const Pricing = () => {
       </Flex>
       <Box>
         <Articles/>
+      </Box>
+      <Box>
+        <Footer/>
       </Box>
     </Box>
   );

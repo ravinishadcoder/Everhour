@@ -44,7 +44,7 @@ const LinkItems = [
   { name: 'Settings', icon: FiSettings },
 ];
 
-export default function Time({ children }) {
+export default function Times({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>

@@ -4,8 +4,8 @@ import base from "../assests/base camp.png";
 import git from "../assests/github.png";
 import monday from "../assests/monday.png";
 import pivote from "../assests/pivotal.png";
-import jira from '../assests/jira.png'
-import trelo from '../assests/trelo.png'
+import jira from "../assests/jira.png";
+import trelo from "../assests/trelo.png";
 import {
   Box,
   Flex,
@@ -37,12 +37,12 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function WithSubnavigation() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { isOpen, onToggle } = useDisclosure();
   const { handleLogOut, isAuth } = useContext(AuthContext);
- 
+
   return (
-    <Box padding={"25px"} >
+    <Box padding={"25px"}>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -74,7 +74,7 @@ export default function WithSubnavigation() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            <HStack onClick={()=>navigate("/")} cursor='pointer'>
+            <HStack onClick={() => navigate("/")} cursor="pointer">
               <img
                 width="30px"
                 src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.trustradius.com%2Fproduct-logos%2Fdy%2Fzk%2FG5MXHRHW9UCZ-180x180.PNG&f=1&nofb=1"
@@ -98,7 +98,7 @@ export default function WithSubnavigation() {
         >
           {isAuth ? (
             <>
-               <Button
+              <Button
                 as={"a"}
                 fontSize={"1rem"}
                 fontWeight={500}
@@ -117,8 +117,8 @@ export default function WithSubnavigation() {
                 variant={"link"}
                 href={"/login"}
                 _hover={{
-                  fontWeight:"bold",
-                  color:"black"
+                  fontWeight: "bold",
+                  color: "black",
                 }}
               >
                 Login
@@ -168,10 +168,9 @@ const DesktopNav = () => {
                 fontWeight={400}
                 color={linkColor}
                 _hover={{
-                  fontWeight:"bold",
-                  color:"black"
+                  fontWeight: "bold",
+                  color: "black",
                 }}
-                
               >
                 {navItem.label}
               </Link>
@@ -179,13 +178,12 @@ const DesktopNav = () => {
 
             {navItem.children && (
               <PopoverContent
-               
                 bg={popoverContentBgColor}
                 p={4}
-                border='1px solid black'
-                width={'290px'}
+                border="1px solid black"
+                width={"290px"}
               >
-                <Stack >
+                <Stack>
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
                   ))}
@@ -212,40 +210,48 @@ const DesktopSubNav = ({ label, href, img }) => {
       <Stack>
         <Grid templateColumns={"repeat(2,1fr)"} gap="20px">
           <GridItem display={"flex"}>
-            <img src={git} alt="" width={'20px'} height="20px" />
-            <Text><Link href='#' >GitHub</Link></Text>
+            <img src={clickup} alt="" width={"20px"} height="20px" />
+            <Text>
+              <Link href="/integrations/clickup">Click Up</Link>
+            </Text>
           </GridItem>
           <GridItem display={"flex"}>
-            <img src={monday} alt="" width={'20px'}  height="20px" />
+            <img src={base} alt="" width={"20px"} height="20px" />
+            <Text>
+              <Link href="/integrations/basecamp">Basecamp</Link>
+            </Text>
+          </GridItem>
+          <GridItem display={"flex"}>
+            <img src={asan} height="20px" width={"20px"} alt="" />
+            <Text>
+              <Link href="/integrations/asana">Asana</Link>
+            </Text>
+          </GridItem>
+          <GridItem display={"flex"}>
+            <img src={trelo} height="20px" width={"20px"} alt="" />
+            <Text>
+              <Link href="/integrations/trello">Trello</Link>
+            </Text>
+          </GridItem>
+          <GridItem display={"flex"}>
+            <img src={jira} height="20px" width={"20px"} alt="" />
+            <Text>
+              <Link href="/#">Jira</Link>
+            </Text>
+          </GridItem>
+          <GridItem display={"flex"}>
+            <img src={git} alt="" width={"20px"} height="20px" />
+            <Text>
+              <Link href="#">GitHub</Link>
+            </Text>
+          </GridItem>
+          <GridItem display={"flex"}>
+            <img src={monday} alt="" width={"20px"} height="20px" />
             <Text>Monday</Text>
           </GridItem>
           <GridItem display={"flex"}>
-            <img src={pivote} alt="" width={'20px'} height="20px" />
+            <img src={pivote} alt="" width={"20px"} height="20px" />
             <Text>Pivotal</Text>
-          </GridItem>
-          <GridItem display={"flex"}>
-            <img src={clickup} alt="" width={'20px'} height="20px" />
-            <Text><Link href='/integrations/clickup' >Click Up</Link></Text>
-          </GridItem>
-          <GridItem display={"flex"}>
-            <img src={base} alt="" width={'20px'} height="20px" />
-            <Text><Link href='/integrations/basecamp' >Basecamp</Link></Text>
-            
-          </GridItem>
-          <GridItem display={"flex"}>
-            <img src={asan} height="20px" width={'20px'} alt="" />
-            <Text><Link href='/integrations/asana' >Asana</Link></Text>
-            
-          </GridItem>
-          <GridItem display={"flex"}>
-            <img src={jira} height="20px" width={'20px'} alt="" />
-            <Text><Link href='/integrations/jira' >Jira</Link></Text>
-            
-          </GridItem>
-          <GridItem display={"flex"}>
-            <img src={trelo} height="20px" width={'20px'} alt="" />
-            <Text><Link href='/integrations/trello' >Trello</Link></Text>
-            
           </GridItem>
         </Grid>
       </Stack>

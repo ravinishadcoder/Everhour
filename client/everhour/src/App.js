@@ -13,14 +13,15 @@ import Asana from './integrations/Asana';
 import ClickUp from './integrations/ClickUp';
 import BaseCamp from './integrations/BaseCamp';
 import Trello from './integrations/Trello';
-import Time from './pages/Project/Time';
+import Time from './pages/Project/Times';
 import Demo from './pages/Home/Demo';
+import Times from './pages/Project/Times';
 
 function App() {
   return (
     <div className="App">
      {/* <Time/> */}
-      <Navbar/>
+      {/* <Navbar/> */}
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -33,8 +34,9 @@ function App() {
         <Route path='/integrations/clickup' element={<ClickUp/>}/>
         <Route path='/integrations/basecamp' element={<BaseCamp/>}/>
         <Route path='/integrations/trello' element={<Trello/>}/>
+        <Route path='/project' element={<Time/>}/>
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

@@ -10,6 +10,8 @@ import pub from "../../assests/public.png";
 import React from "react";
 import { StarIcon } from "@chakra-ui/icons";
 import { MdOutlineClear, MdStayCurrentLandscape } from "react-icons/md";
+import Navbar from "../../components/Navbar"
+import Footer from "../../components/Footer"
 import {
   Box,
   Button,
@@ -37,6 +39,9 @@ const Home = () => {
   };
   return (
     <div>
+      <Box>
+        <Navbar/>
+      </Box>
       <Box>
         <Flex gap="5px" width="300px" margin="auto">
           <Flex gap="5px">
@@ -138,6 +143,9 @@ const Home = () => {
         <Box>
           <Articles />
         </Box>
+      </Box>
+      <Box>
+        <Footer/>
       </Box>
     </div>
   );

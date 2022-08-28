@@ -11,6 +11,8 @@ import { Trellowhydata } from "./Data/Trello/TrelloWhydata";
 import { TrelloLeftImageData1, TrelloLeftImageData2 } from "./Data/Trello/TrelloLeftImageData";
 import { TrelloRightImageData1, TrelloRightImageData2 } from "./Data/Trello/TrelloRightImageData";
 import { TrelloQuestionData } from "./Data/Trello/TrelloQuestionData";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Trello = () => {
   function changeBackground(e) {
@@ -23,6 +25,9 @@ const Trello = () => {
   }
   return (
     <Box >
+      <Box>
+        <Navbar />
+      </Box>
       <Box width={"80%"} m="auto">
         <Box >
         <Heading fontSize={"45px"} fontWeight="400">Trello time tracking integration</Heading>
@@ -73,6 +78,9 @@ Works inside Trello. No more tab switching!
         <YourQuestions QuestionData={TrelloQuestionData}/>
         <Articles/>
        
+      </Box>
+      <Box>
+        <Footer />
       </Box>
     </Box>
   );
