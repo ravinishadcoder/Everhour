@@ -48,22 +48,31 @@ const Home = () => {
           </Flex>
           <Text>4.5 (500+ reviews)</Text>
         </Flex>
-        <Box className={styles.topHeading}>
+        <Box >
           <Text
             fontWeight={500}
-            fontSize={["35px", "40px", "45px"]}
+            fontSize={["25px", "25px","35px","35px", "45px"]}
             width={["100%", "100%"]}
           >
-            Powerful time tracking software with hassle-free integrations
+            Powerful time tracking software with
+          </Text>
+          <Text
+            fontWeight={500}
+            fontSize={["25px", "25px","35px","35px", "45px"]}
+            width={["100%", "100%"]}
+          >
+            hassle-free integrations
           </Text>
         </Box>
         <Box className={styles.subTitle}>
-          <HStack>
-            <Text>
+          <Flex direction="column">
+            <Text fontSize={['lg','lg','2xl','2xl','2xl']} margin="auto" width={["80%","80%","80%","100%","100%"]}>
               Accurate time tracker for budgeting, client invoicing and painless
               payroll.
+              </Text>
+              <Text fontSize={['lg','lg','2xl','2xl','2xl']} margin="auto" width={["80%","80%","80%","100%","100%"]}>Works with the apps your team already use</Text>
               <br />
-              <HStack>
+              {/* <HStack>
                 <p className={styles.perfect}> Perfect for</p>
                 <HStack className={styles.asana}>
                   <Text>Asana</Text>
@@ -73,9 +82,9 @@ const Home = () => {
                   <Text>ClickUp</Text>
                   <Text>GitHub</Text>
                 </HStack>
-              </HStack>
-            </Text>
-          </HStack>
+              </HStack> */}
+            
+          </Flex>
         </Box>
         <Flex className={styles.buttonSub}>
           <Button

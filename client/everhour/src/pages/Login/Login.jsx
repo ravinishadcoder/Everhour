@@ -3,22 +3,52 @@ import React, { useContext, useRef } from "react";
 import styles from "./signup.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../context/AuthContext";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+// import { then } from "../../../../../server/db";
 
 const Login = () => {
   const toast = useToast()
   const {signUpData,handleLogin} = useContext(AuthContext)
   const passref = useRef();
-const hadleLogin=()=>{
-  let password = passref.current.value;
-  let userPassord = signUpData.some((el)=>el.password==password)
-   if(userPassord){
-    handleLogin()
-   }
-    else{
-      toast({ description: 'Incorrect password' })
+  const [user, setUser] =  useState({});
+  const Navigate = useNavigate();
+
+const handleSubmit = () => {
+  const payload = JSON.stringify(user)
+  fetch("https://efficiousever.herokuapp.com/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    }, 
+    body: payload
+  })
+  .then((res) => res.json())
+  .then((res) => {
+    if(res.token) {
+      localStorage.setItem("userid", JSON.stringify(res._id))
+      Navigate("/special");
     }
-  
-  
+    else {
+      console.log(res.message);
+      toast({
+        position: "top",
+        title: `Wrong Credentials`,
+        isClosable: true,
+        status: "error"
+      })
+    }
+  })
+  .catch((err) => console.log(err));
+
+
+}
+const handleChange = (e) => {
+  const {name, value} = e.target;
+  setUser({
+    ...user,
+    [name] : value,
+  })
 }
   return (
     <Box>
@@ -49,15 +79,16 @@ const hadleLogin=()=>{
           </Flex>
           <Text>Or</Text>
           <Flex className={styles.googleBoxL}>
-            <Input placeholder="Work email..." />
+            <Input placeholder="Work email..." onChange={handleChange} name="email"  />
           </Flex>
           <Flex className={styles.googleBoxL}>
-            <Input placeholder='Passoword...'ref={passref} type='password'/>
+            <Input placeholder='Password...'ref={passref} type='password' onChange={handleChange} name="password" />
           </Flex>
 
           <Box >
           <Button
-           onClick={hadleLogin}
+          type="submit"
+           onClick={handleSubmit}
            background={"#57bb71"}
            h="55px"
            width={"180px"}

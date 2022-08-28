@@ -35,12 +35,48 @@ import {
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+// const NAV_ITEMS = [
+//   {name:"Integrations",
+//   id:1,
+// },
+// {name:"Pricing",
+// id:2
+// },
+//  {name:"Demo",
+//  id:3
+// }
+// ];
+const NAV_ITEMS = [
+  // {
+  //   label: "Tour",
+  //   href: "/tour",
+  // },
+  {
+    label: "Integrations",
+    children: [
+      {
+        label: "Asana",
+        subLabel: "Find your dream design job",
+        href: "#",
+        img: "../assests/clickup.png",
+      },
+    ],
+  },
+  {
+    label: "Pricing",
+    href: "/pricing",
+  },
+  {
+    label: "Demo",
+    href: "/demo",
+  },
+];
 
 export default function WithSubnavigation() {
   const navigate = useNavigate()
   const { isOpen, onToggle } = useDisclosure();
   const { handleLogOut, isAuth } = useContext(AuthContext);
- 
+  
   return (
     <Box padding={"25px"} >
       <Flex
@@ -117,8 +153,14 @@ export default function WithSubnavigation() {
                 variant={"link"}
                 href={"/login"}
                 _hover={{
+
                   fontWeight:"bold",
                   color:"black"
+
+                  fontWeight: "bold",
+                
+                  color: "black",
+
                 }}
               >
                 Login
@@ -168,8 +210,10 @@ const DesktopNav = () => {
                 fontWeight={400}
                 color={linkColor}
                 _hover={{
+
                   fontWeight:"bold",
                   color:"black"
+
                 }}
                 
               >
@@ -215,7 +259,8 @@ const DesktopSubNav = ({ label, href, img }) => {
           <GridItem display={"flex"}>
             <img src={clickup} alt="" width={'20px'} height="20px" />
             <Text><Link href='./integrations/clickup' >Click Up</Link></Text>
-          </GridItem>
+
+
           <GridItem display={"flex"}>
             <img src={base} alt="" width={'20px'} height="20px" />
             <Text><Link href='./integrations/basecamp' >Basecamp</Link></Text>
@@ -233,6 +278,7 @@ const DesktopSubNav = ({ label, href, img }) => {
             <Text><Link href='./integrations/trello' >Trello</Link></Text>
           </GridItem>
           <GridItem display={"flex"}>
+
             <img src={git} alt="" width={'20px'} height="20px" />
             <Text><Link href='./integrations/github' >GitHub</Link></Text>
           </GridItem>
@@ -246,6 +292,8 @@ const DesktopSubNav = ({ label, href, img }) => {
             <img src={pivote} alt="" width={'20px'} height="20px" />
             <Text>Pivotal</Text>
           </GridItem>
+
+           
         </Grid>
       </Stack>
     </Link>
@@ -259,8 +307,8 @@ const MobileNav = () => {
       p={4}
       display={{ md: "none" }}
     >
-      {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+      {NAV_ITEMS.map((e) => (
+        <Flex key={e.id} display={["none","none","none","none","none","flex"]}>{e.name}</Flex>
       ))}
     </Stack>
   );
@@ -319,31 +367,4 @@ const MobileNavItem = ({ label, children, href }) => {
   );
 };
 
-const NAV_ITEMS = [
-  {
-    label: "Tour",
-  },
-  {
-    label: "Integrations",
-    children: [
-      {
-        label: "Asana",
-        subLabel: "Find your dream design job",
-        href: "#",
-        img: "../assests/clickup.png",
-      },
-    ],
-  },
-  {
-    label: "Customers",
-    href: "#",
-  },
-  {
-    label: "Pricing",
-    href: "/pricing",
-  },
-  {
-    label: "Demo",
-    href: "#",
-  },
-];
+
