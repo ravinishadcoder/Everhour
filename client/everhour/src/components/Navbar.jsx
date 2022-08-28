@@ -4,7 +4,8 @@ import base from "../assests/base camp.png";
 import git from "../assests/github.png";
 import monday from "../assests/monday.png";
 import pivote from "../assests/pivotal.png";
-
+import jira from '../assests/jira.png'
+import trelo from '../assests/trelo.png'
 import {
   Box,
   Flex,
@@ -152,9 +153,14 @@ export default function WithSubnavigation() {
                 variant={"link"}
                 href={"/login"}
                 _hover={{
+
+                  fontWeight:"bold",
+                  color:"black"
+
                   fontWeight: "bold",
                 
                   color: "black",
+
                 }}
               >
                 Login
@@ -204,10 +210,12 @@ const DesktopNav = () => {
                 fontWeight={400}
                 color={linkColor}
                 _hover={{
-                  fontWeight: "bold",
-                
-                  color: "black",
+
+                  fontWeight:"bold",
+                  color:"black"
+
                 }}
+                
               >
                 {navItem.label}
               </Link>
@@ -215,14 +223,13 @@ const DesktopNav = () => {
 
             {navItem.children && (
               <PopoverContent
-                border={0}
-                boxShadow={"xl"}
+               
                 bg={popoverContentBgColor}
                 p={4}
-                rounded={"xl"}
-                minW={"sm"}
+                border='1px solid black'
+                width={'290px'}
               >
-                <Stack>
+                <Stack >
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
                   ))}
@@ -247,35 +254,46 @@ const DesktopSubNav = ({ label, href, img }) => {
       _hover={{ bg: useColorModeValue("white.50", "gray.900") }}
     >
       <Stack>
-        <Grid templateColumns={"repeat(2,1fr)"} gap="10px">
-        <GridItem >
-            <img src={git} alt="" width="20px" />
-            <Text>GitHub</Text>
-          </GridItem>
-          {/* <GridItem display={"flex"}>
-            <img src={git} alt="" width="20px" />
-            <Text>GitHub</Text>
+        <Grid templateColumns={"repeat(2,1fr)"} gap="20px">
+         
+          <GridItem display={"flex"}>
+            <img src={clickup} alt="" width={'20px'} height="20px" />
+            <Text><Link href='./integrations/clickup' >Click Up</Link></Text>
+
+
+          <GridItem display={"flex"}>
+            <img src={base} alt="" width={'20px'} height="20px" />
+            <Text><Link href='./integrations/basecamp' >Basecamp</Link></Text>
           </GridItem>
           <GridItem display={"flex"}>
-            <img src={monday} alt="" height={"18px"} width="20px" />
+            <img src={asan} height="20px" width={'20px'} alt="" />
+            <Text><Link href='./integrations/asana' >Asana</Link></Text>
+          </GridItem>
+          <GridItem display={"flex"}>
+            <img src={jira} height="20px" width={'20px'} alt="" />
+            <Text>Jira</Text>
+          </GridItem>
+          <GridItem display={"flex"}>
+            <img src={trelo} height="20px" width={'20px'} alt="" />
+            <Text><Link href='./integrations/trello' >Trello</Link></Text>
+          </GridItem>
+          <GridItem display={"flex"}>
+
+            <img src={git} alt="" width={'20px'} height="20px" />
+            <Text><Link href='./integrations/github' >GitHub</Link></Text>
+          </GridItem>
+           
+          <GridItem display={"flex"}>
+            <img src={monday} alt="" width={'20px'}  height="20px" />
             <Text>Monday</Text>
           </GridItem>
+          
           <GridItem display={"flex"}>
-            <img src={pivote} alt="" width="20px" />
+            <img src={pivote} alt="" width={'20px'} height="20px" />
             <Text>Pivotal</Text>
           </GridItem>
-          <GridItem display={"flex"}>
-            <img src={clickup} alt="" width="20px" />
-            <Text>Click Up</Text>
-          </GridItem>
-          <GridItem display={"flex"}>
-            <img src={base} alt="" width="20px" />
-            <Text>Basecamp</Text>
-          </GridItem>
-          <GridItem display={"flex"}>
-            <img src={asan} width="20px" alt="" />
-            <Text>{label}</Text>
-          </GridItem> */}
+
+           
         </Grid>
       </Stack>
     </Link>
