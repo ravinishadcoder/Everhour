@@ -54,16 +54,15 @@ const SignUp = () => {
             <Text>Everhour is a time tracking tool your team will actually use.</Text>
         </VStack>
         <Box className={styles.registrationBox}>
-        <Flex className={styles.googleBox}>
-            {/* <Text className={styles.icon}><FcGoogle  /></Text>
-            <Text fontSize={'1rem'}>Sign up Google</Text> */}
+        
             <GoogleLogin
                 clientId="1080361766688-pqkci2rb3ancc0kvfskvv7f6l5pmlq79.apps.googleusercontent.com"
                 onSuccess={responseGoogle}
                 onFailure={failureGoogle}
                 cookiePolicy={'single_host_origin'}
+                width="320px"
               />
-        </Flex>
+       
         <Text>Or</Text>
         <Flex className={styles.googleBoxI}>
            
